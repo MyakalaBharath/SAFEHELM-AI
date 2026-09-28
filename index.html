@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAFEHELM — Live Safety Command Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="helmet">🪖</div><div><b>SAFEHELM</b><span>AI SAFETY PLATFORM</span></div></div>
+    <nav>
+      <a class="active">Command Center</a><a>Workers</a><a>Incidents</a><a>Hindsight Memory</a>
+    </nav>
+    <div class="side-card"><span class="dot"></span> Demo engine online</div>
+    <div class="side-footer">ESP32 READY<br><small>REST telemetry API</small></div>
+  </aside>
+
+  <main>
+    <header>
+      <div><div class="eyebrow">INDUSTRIAL SAFETY / LIVE MONITORING</div><h1>Command Center</h1></div>
+      <div class="header-actions">
+        <span id="connection" class="status-pill">● CONNECTING</span>
+        <button id="modeBtn" class="btn">LIVE SIMULATION</button>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="helmet-card panel">
+        <div class="panel-head"><span>SAFEHELM UNIT 01</span><span id="helmetState" class="badge safe">SAFE</span></div>
+        <div class="helmet-visual">
+          <div class="ring"></div><div class="helmet-3d">🪖</div>
+          <div class="sensor s1">GAS</div><div class="sensor s2">TEMP</div><div class="sensor s3">IMPACT</div>
+        </div>
+        <div class="worker-line"><div class="avatar">W</div><div><b id="workerName">Worker-01</b><small>Zone A / Assembly Floor</small></div><div class="gps">● GPS LOCKED</div></div>
+      </div>
+
+      <div class="risk panel">
+        <div class="panel-head"><span>AI THREAT SCORE</span><span id="riskLabel">LOW</span></div>
+        <div class="score-wrap"><div id="score" class="score">12</div><span>/100</span></div>
+        <div class="meter"><i id="meter"></i></div>
+        <p id="aiMessage">Environmental conditions are within safe operating limits.</p>
+        <div class="agent"><div class="agent-icon">AI</div><div><b>SAFEHELM AI Safety Agent</b><small id="agentStage">ANALYZE → REASON → ACT</small></div></div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric panel"><span>🌡 TEMPERATURE</span><strong id="temp">31.2°C</strong><small>Ambient</small></div>
+      <div class="metric panel"><span>🧪 GAS INDEX</span><strong id="gas">18 ppm</strong><small id="gasState">Normal</small></div>
+      <div class="metric panel"><span>⚡ MOTION</span><strong id="motion">0.98 g</strong><small id="motionState">Stable</small></div>
+      <div class="metric panel"><span>❤ VITAL SIGNAL</span><strong id="heart">78 bpm</strong><small>Demo sensor</small></div>
+      <div class="metric panel"><span>📍 LOCATION</span><strong>Zone A</strong><small>GPS locked</small></div>
+    </section>
+
+    <section class="lower-grid">
+      <div class="panel chart-panel">
+        <div class="panel-head"><span>REAL-TIME TELEMETRY</span><span class="live-dot">● LIVE</span></div>
+        <canvas id="chart"></canvas>
+      </div>
+      <div class="panel alert-panel">
+        <div class="panel-head"><span>ACTIVE ALERTS</span><span id="alertCount" class="count">0</span></div>
+        <div id="alerts"><div class="empty">No active safety alerts.</div></div>
+      </div>
+    </section>
+
+    <section class="panel incidents">
+      <div class="panel-head"><span>INCIDENT TIMELINE</span><button id="simulateBtn" class="btn danger">SIMULATE HAZARD</button></div>
+      <div id="incidentList" class="timeline"><div class="empty">No incidents recorded in this session.</div></div>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
